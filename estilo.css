@@ -1,32 +1,320 @@
 
-/* FRASCO DE PERFUMERÍA */
+/* =========================================
+   DULCE CAOS - DISEÑO GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --fondo: #f3f1eb;
+    --blanco: #ffffff;
+    --texto: #353b35;
+    --secundario: #73796e;
+    --verde: #687568;
+    --verde-oscuro: #414d43;
+    --dorado: #b69a65;
+    --borde: #deded4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+header {
+    width: 100%;
+    background: #ffffff;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 3px 15px #0000000a;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    color: var(--verde-oscuro);
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.hero {
+    min-height: 390px;
+    padding: 75px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #e7e8df,
+        #f8f7f1,
+        #dce2d9
+    );
+}
+
+.hero h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--verde-oscuro);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #656d63;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.hero a,
+.boton,
+button {
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 27px;
+    background: var(--verde-oscuro);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.hero a:hover,
+.boton:hover,
+button:hover {
+    background: var(--dorado);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+section {
+    padding: 65px 7%;
+}
+
+section h2 {
+    font-family: Georgia, serif;
+    text-align: center;
+    color: var(--verde-oscuro);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+section > p {
+    text-align: center;
+    color: var(--secundario);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* =========================================
+   CREADOR DE PERFUMES
+========================================= */
+
+.creador {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    box-shadow: 0 10px 30px #0000000c;
+}
+
+.creador h2 {
+    margin-bottom: 10px;
+}
+
+.creador label {
+    display: block;
+    margin: 18px 0 7px;
+    color: var(--verde-oscuro);
+    font-weight: bold;
+}
+
+.creador input[type="text"],
+.creador input[type="number"],
+.creador select,
+.creador textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d7d9d0;
+    border-radius: 10px;
+    background: #fafaf7;
+    color: var(--texto);
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+}
+
+.creador input:focus,
+.creador select:focus,
+.creador textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px #68756820;
+}
+
+/* =========================================
+   AROMAS
+========================================= */
+
+.fragancias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.fragancias label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    margin: 0;
+    background: #f5f5f0;
+    border: 1px solid #e4e5dc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: .3s;
+}
+
+.fragancias label:hover {
+    background: #e9ede5;
+    border-color: var(--verde);
+}
+
+.fragancias input {
+    accent-color: var(--verde-oscuro);
+}
+
+/* =========================================
+   VISTA PREVIA
+========================================= */
+
+.vista-previa {
+    margin-top: 35px;
+    padding: 30px 15px;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        #f5f5f0,
+        #e8ebe3
+    );
+    border: 1px solid #e0e2d9;
+    border-radius: 18px;
+}
+
+.vista-previa h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: var(--verde-oscuro);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.escenario-frasco {
+    width: 100%;
+    min-height: 290px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+/* =========================================
+   FRASCO - BASE
+========================================= */
+
 .frasco {
-    width: 175px;
+    --color-frasco: #c9d1c5;
+
+    width: 180px;
     height: 205px;
     margin: 65px auto 30px;
     position: relative;
+    isolation: isolate;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
+    overflow: visible;
+
     background: linear-gradient(
         110deg,
-        #ffffff99,
-        #e8c5ce,
-        #ffffff70,
-        #c58c9e
+        #ffffffd9,
+        var(--color-frasco),
+        #ffffff80,
+        var(--color-frasco)
     );
 
     border: 4px solid #ffffff;
-    border-radius: 45px 45px 35px 35px;
+    border-radius: 35px 35px 28px 28px;
 
     box-shadow:
         inset 8px 0 12px #ffffffaa,
-        inset -10px 0 15px #70465345,
-        0 12px 25px #70465350;
+        inset -10px 0 15px #393f3945,
+        0 15px 25px #393f3940;
+
+    transition:
+        width .35s ease,
+        height .35s ease,
+        border-radius .35s ease,
+        background .35s ease;
 }
 
 /* HOMBROS DEL FRASCO */
+
 .frasco::before {
     content: "";
     position: absolute;
@@ -36,127 +324,116 @@
     left: 50%;
     transform: translateX(-50%);
 
-    background: inherit;
-    border-top: 3px solid white;
+    background: linear-gradient(
+        90deg,
+        var(--color-frasco),
+        #ffffff,
+        var(--color-frasco)
+    );
+
+    border: 3px solid white;
+    border-bottom: none;
     border-radius: 50% 50% 0 0;
+
+    z-index: -1;
 }
 
 /* CUELLO */
-.frasco::after {
-    content: "";
+
+.frasco .cuello {
     position: absolute;
     width: 65px;
     height: 20px;
     top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
 
     background: linear-gradient(
         90deg,
-        #9e702d,
-        #ffe5a0,
-        #b98a40
+        #8d8f88,
+        #f5f3e9,
+        #9a9b91
     );
 
-    border: 2px solid #d6b16c;
+    border: 2px solid #d7d5c9;
     border-radius: 5px;
+
+    z-index: 2;
 }
 
 /* TAPA */
-.tapa-perfume {
+
+.frasco .tapa {
     position: absolute;
     top: -88px;
+    left: 50%;
+    transform: translateX(-50%);
+
     width: 48px;
     height: 40px;
 
     background: linear-gradient(
         90deg,
-        #a77830,
-        #fff0b4,
-        #c09243
+        #888b83,
+        #e9e9df,
+        #92958b
     );
 
-    border: 2px solid #f5d58b;
+    border: 2px solid #e6e3d8;
     border-radius: 10px 10px 5px 5px;
 
     box-shadow: 0 4px 8px #00000030;
+
+    z-index: 4;
 }
 
-/* ETIQUETA DEL PERFUME */
-.etiqueta-perfume {
-    width: 125px;
-    height: 125px;
-    padding: 8px 6px;
+/* TAPAS PERSONALIZADAS */
 
-    background: linear-gradient(
-        135deg,
-        #fffdf4,
-        #f1dfc2
-    );
-
-    border: 2px solid #c7a05b;
-    border-radius: 8px;
-
-    text-align: center;
-    color: #704653;
-    font-family: Georgia, serif;
-
-    box-shadow: 0 4px 10px #00000025;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-    z-index: 2;
+.tapa.dorada {
+    background: linear-gradient(90deg, #a77830, #fff0b4, #c09243);
+    border-color: #f5d58b;
 }
 
-/* FLOR DE LA ETIQUETA */
-.etiqueta-perfume .flor {
-    font-size: 19px;
-    line-height: 22px;
-    margin-bottom: 3px;
+.tapa.plateada {
+    background: linear-gradient(90deg, #777, #fff, #aaa);
+    border-color: #e7e7e7;
 }
 
-/* NOMBRE DE LA MARCA */
-.etiqueta-perfume small {
-    font-family: Arial, sans-serif;
-    font-size: 9px;
-    letter-spacing: 1px;
-    white-space: nowrap;
+.tapa.negra {
+    background: linear-gradient(90deg, #171717, #555, #111);
+    border-color: #777;
 }
 
-/* NOMBRE PERSONALIZADO */
-.etiqueta-perfume h3 {
-    font-family: Georgia, serif;
-    font-size: 14px;
-    line-height: 17px;
-    margin: 5px 0;
-    color: #704653;
-
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-break: normal;
+.tapa.rosa {
+    background: linear-gradient(90deg, #b96f85, #ffd4df, #bd788b);
+    border-color: #f6c1d0;
 }
 
-/* DECORACIÓN DORADA */
-.etiqueta-perfume .decoracion {
-    font-size: 11px;
-    color: #b58c48;
-    line-height: 15px;
-    margin: 2px 0;
-    white-space: nowrap;
+.tapa.blanca {
+    background: linear-gradient(90deg, #ddd, #fff, #e7e7e7);
+    border-color: white;
 }
 
-/* ESTILO DEL PERFUME */
-.etiqueta-perfume .estilo {
-    font-family: Arial, sans-serif;
-    font-size: 9px;
-    letter-spacing: 1px;
-    white-space: nowrap;
+.tapa.cilindrica {
+    width: 43px;
+    height: 48px;
+    border-radius: 50% 50% 8px 8px;
 }
 
-/* BRILLOS DEL VIDRIO */
-.brillo-vidrio {
+.tapa.cuadrada {
+    width: 48px;
+    height: 42px;
+    border-radius: 4px;
+}
+
+.tapa.cristal {
+    background: linear-gradient(90deg, #9eb5b0, #ffffff, #a7c8c1);
+    border-color: #e7ffff;
+}
+
+/* BRILLO */
+
+.frasco .brillo {
     position: absolute;
     left: 15px;
     top: 25px;
@@ -166,19 +443,261 @@
     background: #ffffff80;
     border-radius: 50%;
     filter: blur(5px);
+
     z-index: 1;
+    pointer-events: none;
 }
 
-/* FLORES DECORATIVAS */
-.flores-perfume {
+/* ETIQUETA */
+
+.frasco .etiqueta {
+    position: relative;
+    z-index: 2;
+
+    width: 125px;
+    min-height: 125px;
+    padding: 8px 5px;
+
+    background: linear-gradient(
+        135deg,
+        #fffdf4,
+        #e8e4d8
+    );
+
+    border: 2px solid #b6a276;
+    border-radius: 8px;
+
+    color: #515f50;
+    font-family: Georgia, serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    overflow: hidden;
+
+    box-shadow: 0 4px 10px #00000025;
+}
+
+.etiqueta .simbolo {
+    font-size: 19px;
+    margin-bottom: 3px;
+}
+
+.etiqueta small {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.etiqueta h3 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 5px 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    color: inherit;
+}
+
+.etiqueta .adorno {
+    color: #b58c48;
+    font-size: 11px;
+    margin: 2px;
+}
+
+.etiqueta .tipo {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* DETALLES EXTERIORES */
+
+.frasco .detalle-exterior {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    font-size: 20px;
+    right: 7px;
+    bottom: 7px;
+    font-size: 21px;
     z-index: 3;
 }
 
-/* RESULTADO */
+/* =========================================
+   FORMAS DE LOS FRASCOS
+========================================= */
+
+/* ELEGANTE */
+
+.frasco.elegante {
+    width: 145px;
+    height: 235px;
+    border-radius: 20px 20px 12px 12px;
+}
+
+/* REDONDO */
+
+.frasco.redondo {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+}
+
+.frasco.redondo .etiqueta {
+    width: 115px;
+    min-height: 115px;
+    border-radius: 50%;
+}
+
+/* CUADRADO */
+
+.frasco.cuadrado {
+    width: 190px;
+    height: 190px;
+    border-radius: 12px;
+}
+
+.frasco.cuadrado .etiqueta {
+    border-radius: 5px;
+}
+
+/* CORAZÓN */
+
+.frasco.corazon {
+    width: 190px;
+    height: 190px;
+    border-radius: 48% 48% 35% 35%;
+}
+
+.frasco.corazon::before {
+    width: 105px;
+}
+
+.frasco.corazon .etiqueta {
+    width: 110px;
+    min-height: 100px;
+    border-radius: 18px;
+}
+
+/* OVALADO */
+
+.frasco.ovalado {
+    width: 165px;
+    height: 220px;
+    border-radius: 50%;
+}
+
+/* DIAMANTE */
+
+.frasco.diamante {
+    width: 175px;
+    height: 205px;
+    border-radius: 45% 45% 15% 15%;
+}
+
+.frasco.diamante .etiqueta {
+    width: 110px;
+    min-height: 105px;
+    border-radius: 5px;
+}
+
+/* GEOMÉTRICO */
+
+.frasco.geometrico {
+    width: 190px;
+    height: 200px;
+    border-radius: 25px;
+}
+
+.frasco.geometrico .etiqueta {
+    width: 115px;
+    min-height: 110px;
+    border-radius: 5px;
+}
+
+/* CURVO */
+
+.frasco.curvo {
+    width: 180px;
+    height: 210px;
+    border-radius: 45% 15% 45% 15%;
+}
+
+/* VINTAGE */
+
+.frasco.vintage {
+    width: 180px;
+    height: 205px;
+    border-radius: 30% 30% 12px 12px;
+}
+
+.frasco.vintage .etiqueta {
+    border-radius: 20px 20px 5px 5px;
+}
+
+/* CILÍNDRICO */
+
+.frasco.cilindrico {
+    width: 145px;
+    height: 220px;
+    border-radius: 50% / 12%;
+}
+
+/* GOTA */
+
+.frasco.gota {
+    width: 175px;
+    height: 215px;
+    border-radius: 50% 50% 50% 10%;
+}
+
+/* HEXAGONAL */
+
+.frasco.hexagonal {
+    width: 190px;
+    height: 205px;
+    border-radius: 25% 25% 25% 25%;
+}
+
+.frasco.hexagonal .etiqueta {
+    width: 110px;
+    min-height: 110px;
+    border-radius: 5px;
+}
+
+/* RECTANGULAR */
+
+.frasco.rectangular {
+    width: 145px;
+    height: 225px;
+    border-radius: 8px;
+}
+
+/* ONDULADO */
+
+.frasco.ondulado {
+    width: 185px;
+    height: 205px;
+    border-radius: 35% 15% 35% 15% / 20% 35% 20% 35%;
+}
+
+/* FLOR */
+
+.frasco.flor {
+    width: 185px;
+    height: 205px;
+    border-radius: 45% 45% 15% 15%;
+}
+
+.frasco.flor .etiqueta {
+    border-radius: 45%;
+}
+
+/* =========================================
+   DESCRIPCIÓN Y RESULTADO
+========================================= */
+
 .resultado {
     text-align: center;
     margin-top: 25px;
@@ -186,23 +705,167 @@
 
     background: linear-gradient(
         135deg,
-        #f7eeee,
-        #fce5eb,
-        #fff8f0
+        #f5f5f0,
+        #e8ebe3,
+        #ffffff
     );
 
     border-radius: 15px;
-    border: 1px solid #e8c5ce;
+    border: 1px solid var(--borde);
 }
 
-/* ADAPTACIÓN PARA CELULARES */
+.descripcion {
+    background: #ffffffa8;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 5px;
+    line-height: 1.6;
+    color: #626c60;
+    font-size: 14px;
+}
+
+.resumen {
+    color: #515f50;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.mensaje {
+    text-align: center;
+    color: var(--verde);
+    font-weight: bold;
+    margin-top: 18px;
+    min-height: 20px;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+    margin: 8px 5px;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+/* =========================================
+   SOBRE NOSOTROS
+========================================= */
+
+#nosotros {
+    background: #e8ebe4;
+}
+
+#nosotros p {
+    max-width: 750px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+footer {
+    background: #39443b;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    font-size: 13px;
+    opacity: .9;
+}
+
+/* =========================================
+   RESPONSIVE - TABLETS
+========================================= */
+
+@media (max-width: 800px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .creador {
+        padding: 25px 18px;
+    }
+
+    .fragancias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================
+   RESPONSIVE - CELULARES
+========================================= */
+
 @media (max-width: 500px) {
-    .frasco {
-        transform: scale(0.95);
+    header h1 {
+        font-size: 23px;
     }
 
-    .etiqueta-perfume {
-        width: 125px;
-        height: 125px;
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 330px;
+        padding: 55px 18px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section h2 {
+        font-size: 25px;
+    }
+
+    .creador {
+        margin: 15px auto;
+        padding: 22px 14px;
+    }
+
+    .fragancias {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .fragancias label {
+        font-size: 13px;
+        padding: 10px 7px;
+    }
+
+    .vista-previa {
+        padding: 20px 8px;
+    }
+
+    .escenario-frasco {
+        min-height: 300px;
+    }
+
+    .frasco {
+        transform: scale(.9);
+    }
+
+    .resultado {
+        padding: 18px 12px;
     }
 }
+
