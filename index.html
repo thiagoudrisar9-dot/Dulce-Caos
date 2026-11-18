@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulce Caos | Creá tu perfume</title>
+
+<style>
+
+/* CONFIGURACIÓN GENERAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eeeee9;
+    color: #333b35;
+}
+
+/* ENCABEZADO */
+header {
+    background: #393f39;
+    color: white;
+    padding: 28px;
+    text-align: center;
+}
+
+header h1 {
+    letter-spacing: 6px;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 10px;
+    color: #d5ddd1;
+}
+
+/* NAVEGACIÓN */
+nav {
+    background: #d8ded4;
+    padding: 17px;
+    text-align: center;
+}
+
+nav a {
+    color: #393f39;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #788873;
+}
+
+/* INICIO */
+.inicio {
+    text-align: center;
+    padding: 65px 20px;
+    background: #eeeee9;
+}
+
+.inicio h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #393f39;
+}
+
+.inicio p {
+    color: #737970;
+    margin-bottom: 25px;
+}
+
+/* BOTONES */
+button {
+    background: #788873;
+    color: white;
+    border: none;
+    padding: 14px 27px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #515f50;
+}
+
+/* CREADOR */
+.creador {
+    background: white;
+    max-width: 680px;
+    margin: 25px auto;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #00000012;
+}
+
+.creador h2 {
+    text-align: center;
+    margin-bottom: 28px;
+    color: #454f43;
+    letter-spacing: 2px;
+}
+
+/* FORMULARIO */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #454f43;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d0d6cc;
+    border-radius: 8px;
+    background: #f8f9f6;
+    color: #333b35;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #aab7a3;
+}
+
+/* FRAGANCIAS */
+.fragancias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.aroma {
+    background: #edf0e9;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.aroma:hover {
+    background: #dce4d7;
+}
+
+.aroma input {
+    width: auto;
+    accent-color: #788873;
+}
+
+/* RESULTADO */
+.resultado {
+    text-align: center;
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e8ebe4, #f5f4ee, #e1e6de);
+    border-radius: 15px;
+    border: 1px solid #d0d8cb;
+}
+
+/* FRASCO BASE */
+.frasco {
+    width: 175px;
+    height: 205px;
+    margin: 65px auto 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        110deg,
+        #ffffff99,
+        #b8c2b0,
+        #ffffff70,
+        #899987
+    );
+
+    border: 4px solid white;
+    border-radius: 45px 45px 35px 35px;
+
+    box-shadow:
+        inset 8px 0 12px #ffffffaa,
+        inset -10px 0 15px #393f3945,
+        0 12px 25px #393f3950;
+
+    transition: all 0.4s ease;
+}
+
+/* HOMBROS */
+.frasco::before {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 35px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: inherit;
+    border-top: 3px solid white;
+    border-radius: 50% 50% 0 0;
+}
+
+/* CUELLO */
+.frasco::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 20px;
+    top: -48px;
+    background: linear-gradient(90deg, #9e702d, #ffe5a0, #b98a40);
+    border: 2px solid #d6b16c;
+    border-radius: 5px;
+}
+
+/* TAPA */
+.tapa-perfume {
+    position: absolute;
+    top: -88px;
+    width: 48px;
+    height: 40px;
+    background: linear-gradient(90deg, #a77830, #fff0b4, #c09243);
+    border: 2px solid #f5d58b;
+    border-radius: 10px 10px 5px 5px;
+    box-shadow: 0 4px 8px #00000030;
+}
+
+/* ETIQUETA */
+.etiqueta-perfume {
+    width: 125px;
+    height: 125px;
+    padding: 8px 6px;
+    background: linear-gradient(135deg, #fffdf4, #e8e4d8);
+    border: 2px solid #b6a276;
+    border-radius: 8px;
+    text-align: center;
+    color: #515f50;
+    font-family: Georgia, serif;
+    box-shadow: 0 4px 10px #00000025;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.etiqueta-perfume .flor {
+    font-size: 19px;
+    line-height: 22px;
+    margin-bottom: 3px;
+}
+
+.etiqueta-perfume small {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.etiqueta-perfume h3 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 5px 0;
+    color: #515f50;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.etiqueta-perfume .decoracion {
+    font-size: 11px;
+    color: #b58c48;
+    line-height: 15px;
+    margin: 2px 0;
+    white-space: nowrap;
+}
+
+.etiqueta-perfume .estilo {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* BRILLO */
+.brillo-vidrio {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+    width: 12px;
+    height: 120px;
+    background: #ffffff80;
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+/* DECORACIÓN */
+.flores-perfume {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 20px;
+    z-index: 3;
+}
+
+/* DIFERENTES FORMAS */
+
+/* ELEGANTE */
+.frasco.elegante {
+    width: 145px;
+    height: 220px;
+    border-radius: 25px 25px 15px 15px;
+}
+
+/* DULCE */
+.frasco.dulce {
+    width: 190px;
+    height: 175px;
+    border-radius: 50px 50px 35px 35px;
+}
+
+/* FRESCO */
+.frasco.fresco {
+    width: 175px;
+    height: 190px;
+    border-radius: 12px;
+}
+
+/* INTENSO */
+.frasco.intenso {
+    width: 190px;
+    height: 205px;
+    border-radius: 20px 20px 30px 30px;
+}
+
+/* FLORAL */
+.frasco.floral {
+    width: 175px;
+    height: 195px;
+    border-radius: 55px 55px 25px 25px;
+}
+
+/* DETALLES SEGÚN ESTILO */
+.frasco.intenso .etiqueta-perfume {
+    background: #454a43;
+    color: white;
+    border-color: #c5a66b;
+}
+
+.frasco.intenso .etiqueta-perfume h3 {
+    color: white;
+}
+
+.frasco.fresco .etiqueta-perfume {
+    background: #f1f5ef;
+    border-color: #9eae9a;
+}
+
+.frasco.floral .etiqueta-perfume {
+    background: #f5f0e6;
+    border-color: #b7a77d;
+}
+
+/* NOSOTROS */
+.frase {
+    padding: 55px 20px;
+    text-align: center;
+    color: #687264;
+}
+
+.frase h2 {
+    color: #454f43;
+    margin-bottom: 15px;
+}
+
+/* FOOTER */
+footer {
+    background: #393f39;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+/* CELULARES */
+@media(max-width: 500px) {
+    .fragancias {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        margin: 6px;
+        display: inline-block;
+    }
+
+    .creador {
+        margin: 15px;
+        padding: 22px;
+    }
+
+    .inicio h2 {
+        font-size: 27px;
+    }
+
+    .frasco.elegante {
+        transform: scale(0.9);
+    }
+}
+
+/* IMPRESIÓN */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #resultado, #resultado * {
+        visibility: visible;
+    }
+
+    #resultado {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+    }
+
+    #resultado button {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>DULCE CAOS</h1>
+    <p>Una esencia. Tu personalidad. Tu creación.</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#crear">Crear perfume</a>
+    <a href="#nosotros">Nosotros</a>
+</nav>
+
+<section class="inicio" id="inicio">
+    <h2>Tu perfume, tus reglas.</h2>
+    <p>Diseñá una fragancia que represente quién sos.</p>
+
+    <button onclick="document.getElementById('crear').scrollIntoView({behavior:'smooth'})">
+        CREAR MI PERFUME
+    </button>
+</section>
+
+<section class="creador" id="crear">
+
+    <h2>CREÁ TU PROPIA ESENCIA</h2>
+
+    <label for="nombre">1. ¿Cómo se llamará tu perfume?</label>
+    <input type="text" id="nombre" placeholder="Ej: Mi esencia" maxlength="40">
+
+    <label>2. Elegí tus aromas favoritos</label>
+
+    <div class="fragancias">
+
+        <label class="aroma">
+            <input type="checkbox" value="Vainilla"> 🍦 Vainilla
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Rosa"> 🌹 Rosa
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Coco"> 🥥 Coco
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Lavanda"> 💜 Lavanda
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Frutilla"> 🍓 Frutilla
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Cítricos"> 🍋 Cítricos
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Jazmín"> 🌼 Jazmín
+        </label>
+
+        <label class="aroma">
+            <input type="checkbox" value="Madera"> 🌳 Madera
+        </label>
+
+    </div>
+
+    <label for="estilo">3. Elegí el estilo de tu perfume</label>
+
+    <select id="estilo">
+        <option value="">Seleccionar estilo</option>
+        <option value="Elegante">Elegante</option>
+        <option value="Dulce">Dulce</option>
+        <option value="Fresco">Fresco</option>
+        <option value="Intenso">Intenso</option>
+        <option value="Floral">Floral</option>
+    </select>
+
+    <label for="color">4. Elegí el color de tu frasco</label>
+
+    <select id="color">
+        <option value="#b8c2b0">Verde salvia</option>
+        <option value="#d8cbb8">Beige</option>
+        <option value="#aeb8bd">Gris</option>
+        <option value="#d4e0df">Celeste grisáceo</option>
+        <option value="#c9bda6">Arena</option>
+    </select>
+
+    <div style="text-align:center; margin-top:25px;">
+        <button onclick="crearPerfume()">CREAR MI FRAGANCIA</button>
+    </div>
+
+    <div class="resultado" id="resultado">
+        <h3>Tu creación aparecerá aquí</h3>
+        <div class="frasco"></div>
+        <p>¡Animate a crear algo único!</p>
+    </div>
+
+</section>
+
+<section class="frase" id="nosotros">
+    <h2>NO SIGAS TENDENCIAS, CREÁ TU ESENCIA.</h2>
+    <p>En Dulce Caos creemos que cada persona tiene un aroma que la representa.</p>
+</section>
+
+<footer>
+    <p>© 2026 DULCE CAOS - Tu esencia, tu identidad.</p>
+</footer>
+
+<script>
+
+function crearPerfume() {
+
+    let nombre = document.getElementById("nombre").value.trim();
+    let estilo = document.getElementById("estilo").value;
+    let color = document.getElementById("color").value;
+
+    let aromas = document.querySelectorAll(
+        '.fragancias input:checked'
+    );
+
+    let seleccionados = [];
+
+    aromas.forEach(function(aroma) {
+        seleccionados.push(aroma.value);
+    });
+
+    if (nombre === "" || estilo === "" || seleccionados.length === 0) {
+        alert("Completá el nombre, elegí un estilo y al menos un aroma.");
+        return;
+    }
+
+    /* TÍTULO */
+    let titulo = document.createElement("h3");
+    titulo.style.color = "#515f50";
+    titulo.style.letterSpacing = "3px";
+    titulo.textContent = "✨ TU CREACIÓN EXCLUSIVA ✨";
+
+    /* MARCA */
+    let marca = document.createElement("p");
+    marca.style.color = "#788873";
+    marca.style.marginTop = "10px";
+    marca.textContent = "DULCE CAOS · PERFUMERÍA";
+
+    /* FRASCO SEGÚN EL ESTILO */
+    let frasco = document.createElement("div");
+    frasco.className = "frasco " + estilo.toLowerCase();
+
+    frasco.style.background = `
+        linear-gradient(
+            110deg,
+            #ffffff99,
+            ${color},
+            #ffffff70,
+            ${color}
+        )
+    `;
+
+    /* TAPA */
+    let tapa = document.createElement("div");
+    tapa.className = "tapa-perfume";
+
+    /* BRILLO */
+    let brillo = document.createElement("div");
+    brillo.className = "brillo-vidrio";
+
+    /* ETIQUETA */
+    let etiqueta = document.createElement("div");
+    etiqueta.className = "etiqueta-perfume";
+
+    /* FLOR */
+    let flor = document.createElement("div");
+    flor.className = "flor";
+    flor.textContent = "❀";
+
+    /* MARCA DEL FRASCO */
+    let marcaFrasco = document.createElement("small");
+    marcaFrasco.textContent = "DULCE CAOS";
+
+    /* NOMBRE */
+    let nombreFrasco = document.createElement("h3");
+    nombreFrasco.textContent = nombre;
+
+    /* DECORACIÓN */
+    let decoracion = document.createElement("div");
+    decoracion.className = "decoracion";
+    decoracion.textContent = "✦ ───── ✦";
+
+    /* ESTILO */
+    let estiloFrasco = document.createElement("small");
+    estiloFrasco.className = "estilo";
+    estiloFrasco.textContent = estilo.toUpperCase();
+
+    etiqueta.append(
+        flor,
+        marcaFrasco,
+        nombreFrasco,
+        decoracion,
+        estiloFrasco
+    );
+
+    /* DECORACIÓN SEGÚN AROMAS */
+    let flores = document.createElement("div");
+    flores.className = "flores-perfume";
+
+    if (
+        seleccionados.includes("Rosa") ||
+        seleccionados.includes("Jazmín") ||
+        seleccionados.includes("Lavanda")
+    ) {
+        flores.textContent = "🌸";
+
+    } else if (seleccionados.includes("Cítricos")) {
+        flores.textContent = "🍋";
+
+    } else if (seleccionados.includes("Coco")) {
+        flores.textContent = "🥥";
+
+    } else if (seleccionados.includes("Madera")) {
+        flores.textContent = "🌿";
+
+    } else if (seleccionados.includes("Frutilla")) {
+        flores.textContent = "🍓";
+
+    } else if (seleccionados.includes("Vainilla")) {
+        flores.textContent = "✨";
+
+    } else {
+        flores.textContent = "🌿";
+    }
+
+    /* ARMAR FRASCO */
+    frasco.append(
+        tapa,
+        brillo,
+        etiqueta,
+        flores
+    );
+
+    /* NOMBRE DE LA CREACIÓN */
+    let tituloNombre = document.createElement("h2");
+    tituloNombre.style.color = "#515f50";
+    tituloNombre.style.fontFamily = "Georgia";
+    tituloNombre.style.margin = "20px 0";
+    tituloNombre.textContent = nombre;
+
+    /* AROMAS */
+    let aromasTexto = document.createElement("p");
+    aromasTexto.style.margin = "10px";
+    aromasTexto.textContent = "🌿 Aromas: " + seleccionados.join(", ");
+
+    /* ESTILO */
+    let estiloTexto = document.createElement("p");
+    estiloTexto.style.margin = "10px";
+    estiloTexto.textContent = "✨ Estilo: " + estilo;
+
+    /* FRASE */
+    let frase = document.createElement("p");
+    frase.style.marginTop = "20px";
+    frase.style.color = "#788873";
+    frase.style.fontStyle = "italic";
+    frase.textContent = "Una esencia única, hecha a tu manera.";
+
+    /* BOTÓN IMPRIMIR */
+    let boton = document.createElement("button");
+    boton.style.marginTop = "20px";
+    boton.textContent = "IMPRIMIR MI PERFUME";
+
+    boton.onclick = function() {
+        window.print();
+    };
+
+    /* MOSTRAR CREACIÓN */
+    let resultado = document.getElementById("resultado");
+
+    resultado.replaceChildren(
+        titulo,
+        marca,
+        frasco,
+        tituloNombre,
+        aromasTexto,
+        estiloTexto,
+        frase,
+        boton
+    );
+
+}
+
+</script>
+
+</body>
+</html>

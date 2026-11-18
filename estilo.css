@@ -1,0 +1,208 @@
+
+/* FRASCO DE PERFUMERÍA */
+.frasco {
+    width: 175px;
+    height: 205px;
+    margin: 65px auto 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        110deg,
+        #ffffff99,
+        #e8c5ce,
+        #ffffff70,
+        #c58c9e
+    );
+
+    border: 4px solid #ffffff;
+    border-radius: 45px 45px 35px 35px;
+
+    box-shadow:
+        inset 8px 0 12px #ffffffaa,
+        inset -10px 0 15px #70465345,
+        0 12px 25px #70465350;
+}
+
+/* HOMBROS DEL FRASCO */
+.frasco::before {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 35px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: inherit;
+    border-top: 3px solid white;
+    border-radius: 50% 50% 0 0;
+}
+
+/* CUELLO */
+.frasco::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 20px;
+    top: -48px;
+
+    background: linear-gradient(
+        90deg,
+        #9e702d,
+        #ffe5a0,
+        #b98a40
+    );
+
+    border: 2px solid #d6b16c;
+    border-radius: 5px;
+}
+
+/* TAPA */
+.tapa-perfume {
+    position: absolute;
+    top: -88px;
+    width: 48px;
+    height: 40px;
+
+    background: linear-gradient(
+        90deg,
+        #a77830,
+        #fff0b4,
+        #c09243
+    );
+
+    border: 2px solid #f5d58b;
+    border-radius: 10px 10px 5px 5px;
+
+    box-shadow: 0 4px 8px #00000030;
+}
+
+/* ETIQUETA DEL PERFUME */
+.etiqueta-perfume {
+    width: 125px;
+    height: 125px;
+    padding: 8px 6px;
+
+    background: linear-gradient(
+        135deg,
+        #fffdf4,
+        #f1dfc2
+    );
+
+    border: 2px solid #c7a05b;
+    border-radius: 8px;
+
+    text-align: center;
+    color: #704653;
+    font-family: Georgia, serif;
+
+    box-shadow: 0 4px 10px #00000025;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* FLOR DE LA ETIQUETA */
+.etiqueta-perfume .flor {
+    font-size: 19px;
+    line-height: 22px;
+    margin-bottom: 3px;
+}
+
+/* NOMBRE DE LA MARCA */
+.etiqueta-perfume small {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* NOMBRE PERSONALIZADO */
+.etiqueta-perfume h3 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 5px 0;
+    color: #704653;
+
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* DECORACIÓN DORADA */
+.etiqueta-perfume .decoracion {
+    font-size: 11px;
+    color: #b58c48;
+    line-height: 15px;
+    margin: 2px 0;
+    white-space: nowrap;
+}
+
+/* ESTILO DEL PERFUME */
+.etiqueta-perfume .estilo {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* BRILLOS DEL VIDRIO */
+.brillo-vidrio {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+    width: 12px;
+    height: 120px;
+
+    background: #ffffff80;
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+/* FLORES DECORATIVAS */
+.flores-perfume {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 20px;
+    z-index: 3;
+}
+
+/* RESULTADO */
+.resultado {
+    text-align: center;
+    margin-top: 25px;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #f7eeee,
+        #fce5eb,
+        #fff8f0
+    );
+
+    border-radius: 15px;
+    border: 1px solid #e8c5ce;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 500px) {
+    .frasco {
+        transform: scale(0.95);
+    }
+
+    .etiqueta-perfume {
+        width: 125px;
+        height: 125px;
+    }
+}
